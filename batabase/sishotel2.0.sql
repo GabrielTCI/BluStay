@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clientes` (
-  `id_cliente` int NOT NULL,
+  `id_cliente` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `cpf` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `cpf_UNIQUE` (`cpf`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'Gabriel Teixeira Carvalho','gabrielcarvalho.gc603@gmail.com','62248688326'),(2,'Diego','diego@gmail.com','6312959506');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,7 +51,7 @@ DROP TABLE IF EXISTS `pagamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pagamentos` (
-  `id_pagamentos` int NOT NULL,
+  `id_pagamentos` int NOT NULL AUTO_INCREMENT,
   `id_reserva` int NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `forma_pagamento` varchar(45) NOT NULL,
@@ -78,7 +79,7 @@ DROP TABLE IF EXISTS `quartos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `quartos` (
-  `id_quarto` int NOT NULL,
+  `id_quarto` int NOT NULL AUTO_INCREMENT,
   `numero` varchar(45) NOT NULL,
   `tipo_quarto` varchar(45) DEFAULT NULL,
   `preco_diaria` decimal(10,2) DEFAULT NULL,
@@ -105,7 +106,7 @@ DROP TABLE IF EXISTS `reservas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservas` (
-  `id_reserva` int NOT NULL,
+  `id_reserva` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
   `id_quarto` int NOT NULL,
   `data_entrada` date NOT NULL,
@@ -137,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-07 11:22:51
+-- Dump completed on 2026-06-07 20:40:46

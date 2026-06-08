@@ -91,7 +91,8 @@ button{
   color: white;
   background: #2f10c9;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  
 }
 
 .botao_reservas{
@@ -116,4 +117,72 @@ button{
 
 .divider p {
   margin: 0;
+}
+
+.btn-save {
+   /* verde — Salvar Alteracoes */
+display:inline-block;
+margin-top:20px;
+padding:11px 28px;
+background:#34a853;
+color:#fff;
+font-weight:600;
+border:none;
+border-radius:6px;
+cursor:pointer;
+transition:background .2s; 
+}
+
+.btn-save:hover {
+   background:#2d8f46;
+ }
+
+.btn-edit { /* laranja — Editar */
+display:inline-block;
+padding:6px 14px;
+background:#29c6e1;
+color:#fff;
+border-radius:5px;
+font-size:.85rem;
+font-weight:600;
+text-decoration:none;
+margin-right:6px;
+transition:background .2s;
+margin-bottom: 15px;
+margin-top: 10px;
+margin-left: 15px;
+width: 50px;
+}
+
+.btn-edit:hover {
+background:#c66200;
+}
+
+.btn-del {  /* vermelho — Excluir */
+  
+display:inline-block;
+padding:6px 14px;
+background:#d32f2f;
+color:#fff;
+border-radius:5px;
+font-size:.85rem;
+font-weight:600;
+text-decoration:none;
+transition:background .2s;
+margin-bottom: 15px;
+margin-left: 15px;
+width: 50px;
+}
+
+.btn-del:hover {
+background:#b71c1c; 
+}
+
+/* == LINK LISTAGEM ======================== */
+.link-list {
+display:inline-block;
+margin-top:16px;
+color:#1a73e8;
+font-size:.9rem;
+text-decoration:none;
 }

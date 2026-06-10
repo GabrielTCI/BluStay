@@ -1,7 +1,7 @@
 <?php
-require_once "conexao.php";
+require_once "../conexao.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-header("Location: listar.php"); exit;
+header("Location: ../listar.php"); exit;
 }
 // == 2. CAPTURA DOS DADOS (inclui id do campo hidden) ==
 $id_cliente = (int) ($_POST["id_cliente"] ?? 0);
@@ -24,7 +24,7 @@ $stmt->bindParam(":cpf", $cpf);
 $stmt->bindParam(":id_cliente", $id_cliente, PDO::PARAM_INT);
 try {
 $stmt->execute();
-header("Location: listar.php?msg=editado"); exit;
+header("Location: ../listar.php?msg=editado"); exit;
 } catch (PDOException $erro) {
 die("Erro ao atualizar: " . $erro->getMessage());
 }

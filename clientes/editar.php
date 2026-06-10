@@ -1,7 +1,7 @@
 <?php
-require_once "conexao.php";
+require_once "../conexao.php";
 if (!isset($_GET['id_cliente']) || !is_numeric($_GET['id_cliente'])) {
-header('Location: listar.php'); exit;
+header("Location: ../listar.php"); exit;
 }
 $id_cliente = (int) $_GET['id_cliente']; // Cast seguro para inteiro
 // == SELECT — Busca o cliente PELO ID ===========
@@ -16,7 +16,7 @@ if (!$cliente) { header('Location: listar.php'); exit; }
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><title>Editar Hospede</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body><div class="card">
 <h1># Editar Hospede</h1>
@@ -35,5 +35,5 @@ value="<?= htmlspecialchars($cliente['email']) ?>">
 value="<?= htmlspecialchars($cliente['cpf']) ?>">
 <button type="submit" class="btn-save">Salvar Alterações</button>
 </form>
-<a href="listar.php" class="link-list">Voltar para a lista</a>
+<a href="../listar.php" class="link-list">Voltar para a lista</a>
 </div></body></html>

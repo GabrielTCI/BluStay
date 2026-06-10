@@ -1,7 +1,7 @@
 <?php
-require_once "conexao.php";
+require_once "../conexao.php";
 if (!isset($_GET['id_cliente']) || !is_numeric($_GET['id_cliente'])) {
-header('Location: listar.php'); exit;
+header("Location: ../listar.php"); exit;
 }
 $id_cliente = (int) $_GET['id_cliente'];
 // == 2. VERIFICACAO PREVIA — CONFIRMA QUE O HOSPEDE EXISTE
@@ -18,7 +18,7 @@ $stmt = $conexao->prepare($sql);
 $stmt->bindParam(":id_cliente", $id_cliente, PDO::PARAM_INT);
 try {
 $stmt->execute();
-header("Location: listar.php?msg=deletado"); exit;
+header("Location: ../listar.php?msg=deletado"); exit;
 } catch (PDOException $erro) {
 die("Erro ao deletar: " . $erro->getMessage());
 }

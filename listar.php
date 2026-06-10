@@ -1,6 +1,6 @@
 <?php
 require_once "conexao.php";
-// == SELECT — BUSCA TODOS OS CLIENTES ===========
+
 $sql = "SELECT * FROM clientes ORDER BY nome ASC";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
@@ -11,26 +11,36 @@ $total = count($clientes);
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Lista de Hospedes</title>
+<title>Lista de Hóspedes</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="card">
-<h1>= Hospedes Cadastrados (<?= $total ?>)</h1>
-<!-- Mensagens de feedback -->
+<h1>Hóspedes Cadastrados (<?= $total ?>)</h1>
+
 <?php if (isset($_GET['msg'])): ?>
 <?php if ($_GET['msg'] === 'sucesso'): ?>
-<p class='msg-ok'>Hospede cadastrado com sucesso!</p>
+<p class="msg-ok">Hóspede cadastrado com sucesso!</p>
 <?php elseif ($_GET['msg'] === 'editado'): ?>
-<p class='msg-ok'>Hospede atualizado com sucesso!</p>
+<p class="msg-ok">Hóspede atualizado com sucesso!</p>
 <?php elseif ($_GET['msg'] === 'deletado'): ?>
-<p class='msg-del'>Hospede removido.</p>
-<?php endif; endif; ?>
-<a href="index.php" class="botao_cadastro">+ Novo Hospede</a>
+<p class="msg-del">Hóspede removido.</p>
+<?php endif; ?>
+<?php endif; ?>
+
+<a href="index.php" class="botao_cadastro">+ Novo Hóspede</a>
+
 <table>
-<thead><tr>
-<th>ID</th><th>Nome</th><th>E-mail</th><th>CPF</th><th>Ações</th>
-</tr></thead>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>E-mail</th>
+<th>CPF</th>
+<th>Ações</th>
+</tr>
+</thead>
 <tbody>
 <?php foreach ($clientes as $cliente): ?>
 <tr>
@@ -39,18 +49,29 @@ $total = count($clientes);
 <td><?= htmlspecialchars($cliente['email']) ?></td>
 <td><?= htmlspecialchars($cliente['cpf']) ?></td>
 <td>
-<a href="editar.php?id_cliente=<?= $cliente['id_cliente'] ?>" class="btn-edit">Editar</a>
-<a href="deletar.php?id_cliente=<?= $cliente['id_cliente'] ?>"
-class="btn-del"
-onclick="return confirm('Excluir este hospede?')">Excluir</a>
+<a href="clientes/editar.php?id_cliente=<?= $cliente['id_cliente'] ?>" class="btn-edit">Editar</a>
+
+<a href="clientes/deletar.php?id_cliente=<?= $cliente['id_cliente'] ?>" class="btn-del" onclick="return confirm('Excluir este hóspede?')">Excluir</a>
 </td>
 </tr>
 <?php endforeach; ?>
 </tbody>
 </table>
+
 <?php if ($total === 0): ?>
-<p style='color:#888;text-align:center;margin-top:20px'>
-Nenhum hospede cadastrado ainda.</p>
+<p style="color:#888;text-align:center;margin-top:20px">Nenhum hóspede cadastrado ainda.</p>
 <?php endif; ?>
+
+<br>
+<a href="index.php" class="link-list">Voltar ao início</a>
+<br>
+<a href="quartos.php" class="link-list">Ver quartos</a>
+<br>
+<a href="reservas.php" class="link-list">Ver reservas</a>
+<br>
+<a href="pagamentos.php" class="link-list">Ver pagamentos</a>
+
 </div>
-</body></html>
+
+</body>
+</html>

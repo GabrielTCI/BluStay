@@ -54,7 +54,7 @@ Reserva #<?= htmlspecialchars($reserva['id_reserva']) ?> - <?= htmlspecialchars(
 </form>
 
 <div class="divider"><span></span><p>ou</p><span></span></div>
-<a href="pagamentos.php" class="botao_reservas">Ver Pagamentos</a>
+<a href="../pagamentos.php" class="botao_reservas">Ver Pagamentos</a>
 <br>
 <a href="reservas.php" class="botao_reservas">Ver Reservas</a>
 </div>

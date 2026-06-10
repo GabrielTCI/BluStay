@@ -53,7 +53,7 @@ $quartos = $conexao->query("SELECT id_quarto, numero, tipo_quarto, status FROM q
 </form>
 
 <div class="divider"><span></span><p>ou</p><span></span></div>
-<a href="reservas.php" class="botao_reservas">Ver Reservas</a>
+<a href="../reservas.php" class="botao_reservas">Ver Reservas</a>
 <br>
 <a href="index.php" class="botao_reservas">Voltar ao cadastro de hóspedes</a>
 </div>

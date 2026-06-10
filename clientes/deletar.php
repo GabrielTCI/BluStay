@@ -17,9 +17,21 @@ $sql = "DELETE FROM clientes WHERE id_cliente = :id_cliente";
 $stmt = $conexao->prepare($sql);
 $stmt->bindParam(":id_cliente", $id_cliente, PDO::PARAM_INT);
 try {
-$stmt->execute();
-header("Location: ../listar.php?msg=deletado"); exit;
+
+    $stmt->execute();
+
+    header("Location: ../listar.php?msg=deletado");
+    exit;
+
 } catch (PDOException $erro) {
-die("Erro ao deletar: " . $erro->getMessage());
+
+    if ($erro->getCode() == 23000) {
+
+        header("Location: ../listar.php?msg=cliente_com_reserva");
+        exit;
+    }
+
+    header("Location: ../listar.php?msg=erro_deletar");
+    exit;
 }
 ?>

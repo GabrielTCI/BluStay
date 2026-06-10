@@ -22,6 +22,13 @@ try {
 $stmt->execute();
 header("Location: ../listar.php?msg=sucesso"); exit;
 } catch (PDOException $erro) {
-die("Erro ao cadastrar: " . $erro->getMessage());
+
+    if ($erro->getCode() == 23000) {
+
+        header("Location: ../listar.php?msg=cpf_existente");
+        exit;
+    }
+
+    header("Location: ../listar.php?msg=erro");
+    exit;
 }
-?>

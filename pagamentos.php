@@ -36,9 +36,7 @@ $total = count($pagamentos);
 <?php endif; endif; ?>
 
 <a href="pagamentos/index_pagamento.php" class="botao_cadastro">+ Novo Pagamento</a>
-<a href="reservas.php" class="botao_reservas">Ver Reservas</a>
-<br>
-<a href="index.php" class="botao_reservas">Voltar ao cadastro de hóspedes</a>
+
 
 <table>
 <thead>
@@ -58,12 +56,32 @@ $total = count($pagamentos);
 <td><?= htmlspecialchars($pagamento['status_pagamento']) ?></td>
 <td>
 <a href="pagamentos/editar_pagamento.php?id_pagamentos=<?= $pagamento['id_pagamentos'] ?>" class="btn-edit">Editar</a>
-<a href="pagamentos/deletar_pagamento.php?id_pagamentos=<?= $pagamento['id_pagamentos'] ?>" class="btn-del" onclick="return confirm('Excluir este pagamento?')">
+<a href="pagamentos/deletar_pagamento.php?id_pagamentos=<?= $pagamento['id_pagamentos'] ?>" class="btn-del" onclick="return confirm('Excluir este pagamento?')">Excluir</a>
 </td>
 </tr>
 <?php endforeach; ?>
 </tbody>
 </table>
+
+<div class="menu-links">
+
+    <a href="index.php" class="btn-menu">
+        Voltar ao início
+    </a>
+
+    <a href="listar.php" class="btn-menu">
+        Ver hóspedes
+    </a>
+
+    <a href="quartos.php" class="btn-menu">
+        Ver quartos
+    </a>
+
+    <a href="reservas.php" class="btn-menu">
+        Ver reservas
+    </a>
+
+</div>
 
 <?php if ($total === 0): ?>
 <p style="color:#888;text-align:center;margin-top:20px">Nenhum pagamento cadastrado ainda.</p>

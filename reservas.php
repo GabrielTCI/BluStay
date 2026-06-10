@@ -36,16 +36,18 @@ $total = count($reservas);
 <?php endif; endif; ?>
 
 <a href="reservas/index_reserva.php" class="botao_cadastro">+ Nova Reserva</a>
-<a href="index.php" class="botao_reservas">Voltar ao cadastro de hóspedes</a>
-<br>
-<a href="quartos.php" class="botao_reservas">Ver Quartos</a>
-<br>
-<a href="pagamentos.php" class="botao_reservas">Ver Pagamentos</a>
+
 
 <table>
 <thead>
 <tr>
-<th>ID</th><th>Cliente</th><th>Quarto</th><th>Entrada</th><th>Saída</th><th>Status</th><th>Ações</th>
+<th>ID</th>
+<th>Cliente</th>
+<th>Quarto</th>
+<th>Entrada</th>
+<th>Saída</th>
+<th>Status</th>
+<th>Ações</th>
 </tr>
 </thead>
 <tbody>
@@ -53,18 +55,44 @@ $total = count($reservas);
 <tr>
 <td><?= htmlspecialchars($reserva['id_reserva']) ?></td>
 <td><?= htmlspecialchars($reserva['nome_cliente']) ?></td>
-<td><?= htmlspecialchars($reserva['numero_quarto']) ?> - <?= htmlspecialchars($reserva['tipo_quarto']) ?></td>
-<td><?= htmlspecialchars($reserva['data_entrada']) ?></td>
-<td><?= htmlspecialchars($reserva['data_saida']) ?></td>
+
+<td><?= htmlspecialchars($reserva['numero_quarto']) ?></td>
+
+<td><?= htmlspecialchars($reserva['tipo_quarto']) ?></td>
+
+<td class="data-coluna"><?= htmlspecialchars($reserva['data_entrada']) ?></td>
+
+<td class="data-coluna"><?= htmlspecialchars($reserva['data_saida']) ?></td>
+
 <td><?= htmlspecialchars($reserva['status']) ?></td>
 <td>
 <a href="reservas/editar_reserva.php?id_reserva=<?= $reserva['id_reserva'] ?>" class="btn-edit">Editar</a>
-<a href="reservas/deletar_reserva.php?id_reserva=<?= $reserva['id_reserva'] ?>" class="btn-del" onclick="return confirm('Excluir esta reserva?')">
+<a href="reservas/deletar_reserva.php?id_reserva=<?= $reserva['id_reserva'] ?>" class="btn-del" onclick="return confirm('Excluir esta reserva?')">Excluir</a>
 </td>
 </tr>
 <?php endforeach; ?>
 </tbody>
 </table>
+
+<div class="menu-links">
+
+    <a href="index.php" class="btn-menu">
+        Voltar ao início
+    </a>
+
+    <a href="listar.php" class="btn-menu">
+        Ver hóspedes
+    </a>
+
+    <a href="quartos.php" class="btn-menu">
+        Ver quartos
+    </a>
+
+    <a href="pagamentos.php" class="btn-menu">
+        Ver pagamentos
+    </a>
+
+</div>
 
 <?php if ($total === 0): ?>
 <p style="color:#888;text-align:center;margin-top:20px">Nenhuma reserva cadastrada ainda.</p>

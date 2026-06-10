@@ -26,6 +26,24 @@ $total = count($clientes);
 <p class="msg-ok">Hóspede atualizado com sucesso!</p>
 <?php elseif ($_GET['msg'] === 'deletado'): ?>
 <p class="msg-del">Hóspede removido.</p>
+
+<?php elseif ($_GET['msg'] === 'cliente_com_reserva'): ?>
+<p class="msg-del">
+Não é possível excluir o hóspede porque ele possui reservas cadastradas.
+</p>
+
+<?php elseif ($_GET['msg'] === 'erro_deletar'): ?>
+<p class="msg-del">
+Erro ao excluir o hóspede.
+</p>
+
+<?php elseif ($_GET['msg'] === 'cpf_existente'): ?>
+<p class="msg-del">CPF já cadastrado no sistema.</p>
+
+<?php elseif ($_GET['msg'] === 'erro'): ?>
+<p class="msg-del">
+Ocorreu um erro ao processar a operação.
+</p>
 <?php endif; ?>
 <?php endif; ?>
 
@@ -47,7 +65,7 @@ $total = count($clientes);
 <td><?= htmlspecialchars($cliente['id_cliente']) ?></td>
 <td><?= htmlspecialchars($cliente['nome']) ?></td>
 <td><?= htmlspecialchars($cliente['email']) ?></td>
-<td><?= htmlspecialchars($cliente['cpf']) ?></td>
+<td class="cpf"><?= htmlspecialchars($cliente['cpf']) ?></td>
 <td>
 <a href="clientes/editar.php?id_cliente=<?= $cliente['id_cliente'] ?>" class="btn-edit">Editar</a>
 
@@ -63,13 +81,17 @@ $total = count($clientes);
 <?php endif; ?>
 
 <br>
-<a href="index.php" class="link-list">Voltar ao início</a>
-<br>
-<a href="quartos.php" class="link-list">Ver quartos</a>
-<br>
-<a href="reservas.php" class="link-list">Ver reservas</a>
-<br>
-<a href="pagamentos.php" class="link-list">Ver pagamentos</a>
+<div class="menu-links">
+
+    
+
+    <a href="quartos.php" class="btn-menu">Ver Quartos</a>
+
+    <a href="reservas.php" class="btn-menu">Ver Reservas</a>
+
+    <a href="pagamentos.php" class="btn-menu">Ver Pagamentos</a>
+
+</div>
 
 </div>
 

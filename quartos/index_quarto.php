@@ -43,9 +43,9 @@
 <span></span>
 </div>
 
-<a href="quartos.php" class="botao_reservas">Ver Quartos</a>
+<a href="../quartos.php" class="botao_reservas">Ver Quartos</a>
 <br>
-<a href="index.php" class="botao_reservas">Voltar ao cadastro de hóspedes</a>
+<a href="../index.php" class="botao_reservas">Voltar ao cadastro de hóspedes</a>
 
 </div>
 

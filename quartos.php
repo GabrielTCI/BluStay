@@ -52,7 +52,7 @@ $total = count($quartos);
 <td><?= htmlspecialchars($quarto['status']) ?></td>
 <td>
 <a href="quartos/editar_quarto.php?id_quarto=<?= $quarto['id_quarto'] ?>" class="btn-edit">Editar</a>
-<a href="quartos/deletar_quarto.php?id_quarto=<?= $quarto['id_quarto'] ?>" class="btn-del" onclick="return confirm('Excluir este quarto?')">
+<a href="quartos/deletar_quarto.php?id_quarto=<?= $quarto['id_quarto'] ?>" class="btn-del" onclick="return confirm('Excluir este quarto?')">Excluir</a>
 </td>
 </tr>
 <?php endforeach; ?>
@@ -64,14 +64,25 @@ $total = count($quartos);
 <?php endif; ?>
 
 <br>
-<a href="index.php" class="link-list">Voltar ao início</a>
-<br>
-<a href="listar.php" class="link-list">Ver hóspedes</a>
-<br>
-<a href="reservas.php" class="link-list">Ver reservas</a>
-<br>
-<a href="pagamentos.php" class="link-list">Ver pagamentos</a>
+<div class="menu-links">
 
+    <a href="index.php" class="btn-menu">
+        Voltar ao início
+    </a>
+
+    <a href="listar.php" class="btn-menu">
+        Ver hóspedes
+    </a>
+
+    <a href="reservas.php" class="btn-menu">
+        Ver reservas
+    </a>
+
+    <a href="pagamentos.php" class="btn-menu">
+        Ver pagamentos
+    </a>
+
+</div>
 </div>
 
 </body>
